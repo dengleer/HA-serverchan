@@ -11,5 +11,3 @@ notify:
   - name: weixin
     platform: serverchan
     sc_key: xxxxxxxxxxxxxxxxxxxxxx //your api key here
-    
-
