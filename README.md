@@ -8,6 +8,6 @@ serverchan.py is poorly coded but a working version.
 Put serverchan.py under .homeassistant/custom_components/notify   
 example  in configuration.yaml:   
 notify:   
-  - name: weixin   
+  \- name: weixin   
     platform: serverchan   
     sc_key: xxxxxxxxxxxxxxxxxxxxxx //your api key here
