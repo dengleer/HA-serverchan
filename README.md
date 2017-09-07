@@ -5,9 +5,11 @@ ServerChan introduction:
 http://sc.ftqq.com/3.version   
 
 serverchan.py is poorly coded but a working version.  
-Put serverchan.py under .homeassistant/custom_components/notify   
+Put serverchan.py under .homeassistant/custom_components/notify 
+
 example  in configuration.yaml:   
 notify:   
-  \- name: weixin     
-     platform: serverchan   
-     sc_key: xxxxxxxxxxxxxxxxxxxxxx //your api key here
+  \- name: weixin    
+  
+       platform: serverchan　　　　
+       sc_key: xxxxxxxxxxxxxxxxxxxxxx   
