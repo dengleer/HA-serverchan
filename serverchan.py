@@ -2,7 +2,8 @@
 Weixin Push Service by ServerChan
 """
 import logging
-
+from fake_useragent import UserAgent
+import datetime
 import requests
 import voluptuous as vol
 
@@ -33,14 +34,21 @@ class ServerchanNotificationService(BaseNotificationService):
         """Send a message to a user."""
         url = '{}/{}.send'.format(_RESOURCE, self._sc_key)
         title = kwargs.get(ATTR_TITLE)
-        payload = {'text': title, 'desp': message}
-        response = requests.get(url,params = payload)
-        _LOGGER.debug("sneding out message")
+        if title:
+           timestp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+           sendmessage = '{} {}'.format(timestp, message)
+           payload = {'text': title, 'desp': sendmessage}
+           ua = UserAgent()
+           header = {'user-agent': ua.random }
+           response = requests.get(url,params = payload,headers = header)
+           _LOGGER.debug("sneding out message")
 		
-        if response.status_code != 200:
-            obj = response.json()
-            error_message = obj['error']['message']
-            error_code = obj['error']['code']
-            _LOGGER.error(
-                "Error %s : %s (Code %s)", resp.status_code, error_message,
-                error_code)
+           if response.status_code != 200:
+              obj = response.json()
+              error_message = obj['error']['message']
+              error_code = obj['error']['code']
+              _LOGGER.error(
+                   "Error %s : %s (Code %s)", resp.status_code, error_message,
+                   error_code)
+        else:
+           _LOGGER.error("Title can NOT be null")
