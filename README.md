@@ -13,3 +13,5 @@ notify:
   
        platform: serverchan　　　　
        sc_key: xxxxxxxxxxxxxxxxxxxxxx   
+
+Warn:"title" and "message" should NOT be null
