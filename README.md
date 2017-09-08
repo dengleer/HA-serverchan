@@ -1,7 +1,7 @@
 # HA-serverchan
 Homeassistant custom component to push notify message to weixin. Please report bugs to dengleer#126.com
 
-Server酱 introduction:   
+Server酱 introduction:   
 http://sc.ftqq.com/3.version   
 
 Serverchan.py is poorly coded but a working version.  
